@@ -53,43 +53,41 @@ export default function ChatPage() {
           ? (process.env.NEXT_PUBLIC_OPENROUTER_API_KEY as string | undefined)
           : undefined;
 
-      if (apiKey) {
-        setMode("live");
-
-        const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${apiKey}`,
-            "Content-Type": "application/json",
-            "HTTP-Referer": typeof window !== "undefined" ? window.location.origin : "http://localhost:3012",
-            "X-Title": "Tony AI",
-          },
-          body: JSON.stringify({
-            model: "openai/gpt-4o-mini",
-            messages: [
-              { role: "system", content: "You are Tony, an AI coworker that delivers finished work." },
-              ...messages
-                .concat(userMessage)
-                .map((m) => ({ role: m.role, content: m.content })),
-            ],
-            max_tokens: 1024,
-            temperature: 0.7,
-          }),
-        });
-
-        if (!response.ok) {
-          const errorData = await response.json().catch(() => ({}));
-          throw new Error(errorData?.error?.message || `OpenRouter error ${response.status}`);
-        }
-
-        const data = await response.json();
-        const reply = data.choices?.[0]?.message?.content || "I'm here to help.";
-        setMessages((prev) => [...prev, { role: "assistant", content: reply, timestamp: new Date() }]);
-      } else {
-        setMode("demo");
-        const reply = generateContextualReply(userMessage.content);
-        setMessages((prev) => [...prev, { role: "assistant", content: reply, timestamp: new Date() }]);
+      if (!apiKey) {
+        throw new Error("Missing NEXT_PUBLIC_OPENROUTER_API_KEY");
       }
+
+      setMode("live");
+
+      const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+          "HTTP-Referer": typeof window !== "undefined" ? window.location.origin : "http://localhost:3012",
+          "X-Title": "Tony AI",
+        },
+        body: JSON.stringify({
+          model: "openai/gpt-4o-mini",
+          messages: [
+            { role: "system", content: "You are Tony, an AI coworker that delivers finished work." },
+            ...messages
+              .concat(userMessage)
+              .map((m) => ({ role: m.role, content: m.content })),
+          ],
+          max_tokens: 1024,
+          temperature: 0.7,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData?.error?.message || `OpenRouter error ${response.status}`);
+      }
+
+      const data = await response.json();
+      const reply = data.choices?.[0]?.message?.content || "I'm here to help.";
+      setMessages((prev) => [...prev, { role: "assistant", content: reply, timestamp: new Date() }]);
     } catch (err) {
       const message = err instanceof Error ? err.message : "Something went wrong.";
       setError(message);
