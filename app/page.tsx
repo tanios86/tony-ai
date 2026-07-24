@@ -329,9 +329,15 @@ export default function Home() {
         <div className="mx-auto max-w-5xl text-center">
           <p className="text-roman-blue font-semibold text-sm tracking-wider uppercase mb-4">Watch Demo</p>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">See Tony finish real tasks.</h2>
-          <p className="text-neutral-400 text-lg mb-10">This is a placeholder for your demo video.</p>
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-12 md:p-20 flex items-center justify-center">
-            <div className="text-neutral-400">Demo video placeholder</div>
+          <p className="text-neutral-400 text-lg mb-10">Replace this placeholder with your product demo.</p>
+          <div className="relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden aspect-video flex items-center justify-center">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-roman-dark/60" />
+            <div className="relative z-10 flex flex-col items-center gap-3">
+              <div className="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
+                <Play className="w-6 h-6 text-white" />
+              </div>
+              <p className="text-sm text-neutral-300">Your demo video</p>
+            </div>
           </div>
         </div>
       </section>
