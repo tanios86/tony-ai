@@ -29,7 +29,7 @@ export default function GetStartedPage() {
           <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
             <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 font-bold mb-4">3</div>
             <h3 className="font-semibold mb-2">Run your first task</h3>
-            <p className="text-sm text-neutral-400">Ask Tony to complete a real task and review the delivered output.</p>
+            <p className="text-sm text-neutral-400">Pick a template or ask Tony to complete a real task and review the delivered output.</p>
           </div>
         </div>
 
@@ -38,12 +38,20 @@ export default function GetStartedPage() {
             <h2 className="text-2xl font-bold mb-2">Ready to try Tony?</h2>
             <p className="text-neutral-300">Start free, no credit card required.</p>
           </div>
-          <Link
-            href="/chat"
-            className="inline-flex items-center gap-2 bg-roman-blue hover:bg-sky-400 text-roman-dark font-semibold px-6 py-3 rounded-lg transition-all hover:scale-105"
-          >
-            Open Tony <Sparkles className="w-4 h-4" />
-          </Link>
+          <div className="flex gap-3">
+            <Link
+              href="/chat"
+              className="inline-flex items-center gap-2 bg-roman-blue hover:bg-sky-400 text-roman-dark font-semibold px-6 py-3 rounded-lg transition-all hover:scale-105"
+            >
+              Open Chat <Sparkles className="w-4 h-4" />
+            </Link>
+            <Link
+              href="#"
+              className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold px-6 py-3 rounded-lg transition-all"
+            >
+              <Play className="w-4 h-4" /> Watch Demo
+            </Link>
+          </div>
         </div>
 
         <div className="mt-10 flex items-center justify-center gap-2 text-sm text-neutral-400">

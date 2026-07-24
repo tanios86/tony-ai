@@ -48,7 +48,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
             <Link
-              href="/chat"
+              href="/get-started"
               className="bg-roman-blue hover:bg-sky-400 text-roman-dark font-semibold px-8 py-3.5 rounded-lg transition-all hover:scale-105 flex items-center gap-2"
             >
               Get Started <ArrowRight className="w-4 h-4" />
@@ -169,7 +169,7 @@ export default function Home() {
                 <li>1 integration</li>
                 <li>Basic analytics</li>
               </ul>
-              <Link href="/chat" className="block text-center bg-roman-blue text-roman-dark font-semibold px-4 py-2 rounded-lg hover:bg-sky-400 transition-colors">Start free</Link>
+              <Link href="/get-started" className="block text-center bg-roman-blue text-roman-dark font-semibold px-4 py-2 rounded-lg hover:bg-sky-400 transition-colors">Start free</Link>
             </div>
             <div className="bg-white/5 border border-roman-blue/30 rounded-2xl p-6 relative">
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-roman-blue text-roman-dark text-xs font-bold px-3 py-1 rounded-full">POPULAR</span>
@@ -181,7 +181,7 @@ export default function Home() {
                 <li>5 integrations</li>
                 <li>Priority execution</li>
               </ul>
-              <Link href="/chat" className="block text-center bg-roman-blue text-roman-dark font-semibold px-4 py-2 rounded-lg hover:bg-sky-400 transition-colors">Get started</Link>
+              <Link href="/get-started" className="block text-center bg-roman-blue text-roman-dark font-semibold px-4 py-2 rounded-lg hover:bg-sky-400 transition-colors">Get started</Link>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
               <h3 className="font-semibold mb-1">Enterprise</h3>
@@ -192,7 +192,7 @@ export default function Home() {
                 <li>Custom integrations</li>
                 <li>SSO, audit logs, SLA</li>
               </ul>
-              <Link href="/chat" className="block text-center border border-white/10 text-white font-semibold px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Contact sales</Link>
+              <Link href="/get-started" className="block text-center border border-white/10 text-white font-semibold px-4 py-2 rounded-lg hover:bg-white/10 transition-colors">Contact sales</Link>
             </div>
           </div>
         </div>
